@@ -2,7 +2,10 @@
 	"name": "modulepreload-demo",
 	"version": "0.0.0",
 	"scripts": {
-		"start": "node index.js"
+		"start": "vc dev"
 	},
-	"type": "module"
+	"type": "module",
+	"devDependencies": {
+		"vercel": "^28.15.5"
+	}
 }

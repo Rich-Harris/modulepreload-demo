@@ -1,8 +1,6 @@
 import './b.js';
 
-const seconds = Math.round(performance.now() / 1000);
+const ms = Math.floor(performance.now());
 
 const main = document.querySelector('main');
-main.innerHTML = `<p>loaded in ${seconds} ${
-	seconds === 1 ? 'second' : 'seconds'
-}</p>`;
+main.innerHTML = `<p>loaded in ${ms}ms</p>`;
