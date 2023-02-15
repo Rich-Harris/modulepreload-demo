@@ -9,4 +9,12 @@ export default async function middleware(request) {
 		response.headers.set('x-middleware-next', '1');
 		return response;
 	}
+
+	const response = new Response();
+	response.headers.set(
+		'link',
+		`<./a.js>; rel="modulepreload"; nopush, <./b.js>; rel="modulepreload"; nopush, <./c.js>; rel="modulepreload"; nopush`
+	);
+	response.headers.set('x-middleware-next', '1');
+	return response;
 }
