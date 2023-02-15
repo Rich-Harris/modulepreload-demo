@@ -1,0 +1,8 @@
+{
+	"name": "modulepreload-demo",
+	"version": "0.0.0",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"type": "module"
+}
