@@ -1,6 +1,7 @@
 const sleep = (ms) => new Promise((f) => setTimeout(f, ms));
 
-export async function middleware(request) {
+export default async function middleware(request) {
+	console.log(request);
 	if (request.url.endsWith('.js')) {
 		await sleep(1000);
 
