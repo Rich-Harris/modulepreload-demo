@@ -3,6 +3,20 @@
 	<head>
 		<meta charset="utf8" />
 
+		<script>
+			const { relList } = document.createElement('link');
+			if (!relList?.supports('modulepreload')) {
+				for (const src of ['./a.js', './b.js', './c.js']) {
+					const link = document.createElement('link');
+					link.rel = 'preload';
+					link.as = 'script';
+					link.href = src;
+					link.crossOrigin = 'anonymous';
+					document.head.appendChild(link);
+				}
+			}
+		</script>
+
 		<style>
 			p {
 				font-size: 4rem;
