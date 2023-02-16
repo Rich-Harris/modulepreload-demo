@@ -1,8 +1,7 @@
 const sleep = (ms) => new Promise((f) => setTimeout(f, ms));
 
 export default async function middleware(request) {
-	console.log(request);
-	if (request.url.endsWith('.js')) {
+	if (request.url.endsWith('.mjs')) {
 		await sleep(1000);
 
 		const response = new Response();
@@ -13,7 +12,9 @@ export default async function middleware(request) {
 	const response = new Response();
 	response.headers.set(
 		'link',
-		`<./a.js>; rel="modulepreload"; nopush, <./b.js>; rel="modulepreload"; nopush, <./c.js>; rel="modulepreload"; nopush`
+		['a', 'b', 'c']
+			.map((x) => `<./${x}.mjs>; rel="preload"; as="script"; nopush`)
+			.join(', ')
 	);
 	response.headers.set('x-middleware-next', '1');
 	return response;
