@@ -1,4 +1,4 @@
-import './b.js';
+import './b.mjs';
 
 const ms = Math.floor(performance.now());
 
