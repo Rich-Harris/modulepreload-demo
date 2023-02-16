@@ -13,7 +13,10 @@ export default async function middleware(request) {
 	response.headers.set(
 		'link',
 		['a', 'b', 'c']
-			.map((x) => `<./${x}.mjs>; rel="preload"; as="script"; nopush`)
+			.map(
+				(x) =>
+					`<./${x}.mjs>; rel="preload"; as="script"; crossorigin="anonymous"; nopush`
+			)
 			.join(', ')
 	);
 	response.headers.set('x-middleware-next', '1');
